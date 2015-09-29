@@ -45,7 +45,10 @@ def install_requirements(sudo):
     u"""Instala ou atualiza bibliotecas necessárias."""
     if sudo and os.name == "posix":
         os.system(" sudo pip install -U -r requirements.txt")
-    os.system("pip install -U -r requirements.txt")
+    elif sudo:
+        os.system(" sudo pip install -U -r requirements.txt")
+    else:
+        os.system("pip install -U -r requirements.txt")
 
 
 def setup():
